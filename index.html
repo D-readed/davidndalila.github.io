@@ -5,57 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            text-align: center;
-            color: white;
-        }
-        .container {
-            width: 50%;
-            margin: auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-        .buttons button {
-            background: #ff5722;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            font-size: 18px;
-        }
-        .buttons button:hover {
-            background: #e64a19;
-        }
-        .form {
-            display: none;
-            margin-top: 20px;
-        }
-        input, select {
-            display: block;
-            width: 90%;
-            margin: 10px auto;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-        }
-        button {
-            background: #4caf50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #45a049;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -67,56 +16,27 @@
         
         <div id="login-form" class="form">
             <h3>Sign In</h3>
-            <input type="text" placeholder="Username" required>
-            <input type="password" placeholder="Password" required>
-            <button>Login</button>
+            <input type="text" id="login-username" placeholder="Username" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <p id="login-message" style="color: red;"></p>
         </div>
 
         <div id="signup-form" class="form">
             <h3>Sign Up</h3>
-            <input type="text" placeholder="Full Name" required>
-            <input type="text" placeholder="Admission Number" required>
-            <input type="email" placeholder="Email" required>
+            <input type="text" id="signup-name" placeholder="Full Name" required>
+            <input type="text" id="signup-admission" placeholder="Admission Number" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
             <label>Date of Birth:</label>
             <select id="dob-day"></select>
             <select id="dob-month"></select>
             <select id="dob-year"></select>
-            <input type="text" placeholder="Degree Program" required>
-            <button>Register</button>
+            <input type="text" id="signup-program" placeholder="Degree Program" required>
+            <button onclick="register()">Register</button>
+            <p id="signup-message" style="color: red;"></p>
         </div>
     </div>
 
-    <script>
-        function showLogin() {
-            document.getElementById('login-form').style.display = 'block';
-            document.getElementById('signup-form').style.display = 'none';
-        }
-
-        function showSignup() {
-            document.getElementById('signup-form').style.display = 'block';
-            document.getElementById('login-form').style.display = 'none';
-        }
-
-        // Populate Date of Birth Dropdown
-        window.onload = function() {
-            let daySelect = document.getElementById("dob-day");
-            let monthSelect = document.getElementById("dob-month");
-            let yearSelect = document.getElementById("dob-year");
-            
-            for (let i = 1; i <= 31; i++) {
-                daySelect.innerHTML += `<option value="${i}">${i}</option>`;
-            }
-            
-            let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-            months.forEach((month, index) => {
-                monthSelect.innerHTML += `<option value="${index + 1}">${month}</option>`;
-            });
-            
-            let currentYear = new Date().getFullYear();
-            for (let i = currentYear - 60; i <= currentYear - 16; i++) {
-                yearSelect.innerHTML += `<option value="${i}">${i}</option>`;
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
