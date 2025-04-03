@@ -36,20 +36,41 @@
             <input type="date" id="dob" required>
             <input type="text" id="school" placeholder="School" required>
             <input type="text" id="course" placeholder="Course" required>
+            <input type="email" id="email" placeholder="Email Address" required>
             <button type="submit">Register</button>
         </form>
 
         <div class="links">
-            <p>Already have an account? <a href="#" id="backToLogin">Log In</a></p>
+            <p>Already have an account? <a href="#" id="backToLoginFromSignUp">Log In</a></p>
         </div>
     </div>
 
-    <!-- Password Reset Form -->
-    <div class="container hidden" id="resetContainer">
-        <h2>Reset Password</h2>
-        <p>Enter your email to receive a verification code.</p>
-        <input type="email" id="email" placeholder="Enter your email" required>
-        <button id="sendCode">Send Code</button>
+    <!-- Verify Email Form -->
+    <div class="container hidden" id="verifyEmailContainer">
+        <h2>Verify Email</h2>
+        <p>Enter the 6-digit verification code sent to your email.</p>
+        <input type="text" id="verificationCodeInput" placeholder="Enter code" required>
+        <button id="verifyCodeButton">Verify</button>
+
+        <div class="links">
+            <p><a href="#" id="backToSignUpFromVerify">Back to Sign Up</a></p>
+        </div>
+    </div>
+
+    <!-- Set Password Form -->
+    <div class="container hidden" id="setPasswordContainer">
+        <h2>Set Password</h2>
+        <p>Enter your new password (at least 6 characters with a special character).</p>
+        <input type="password" id="newPasswordInput" placeholder="New password" required>
+        <button id="setPasswordButton">Done</button>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div class="container hidden" id="forgotPasswordContainer">
+        <h2>Forgot Password</h2>
+        <p>Enter your email to receive a verification code to reset your password.</p>
+        <input type="email" id="forgotEmail" placeholder="Enter your email" required>
+        <button id="sendVerificationCode">Send Code</button>
 
         <div id="verificationSection" class="hidden">
             <p>Enter the 6-digit code sent to your email.</p>
@@ -58,16 +79,16 @@
         </div>
 
         <div id="newPasswordSection" class="hidden">
-            <p>Enter your new password.</p>
+            <p>Enter your new password (at least 6 characters with a special character).</p>
             <input type="password" id="newPassword" placeholder="New password" required>
             <button id="resetPassword">Reset Password</button>
         </div>
 
         <div class="links">
-            <p><a href="#" id="backToLoginFromReset">Back to Login</a></p>
+            <p><a href="#" id="backToLoginFromForgotPassword">Back to Login</a></p>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
