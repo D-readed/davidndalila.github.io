@@ -3,37 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login</title>
+    <title>Student Login Portal</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Welcome to Student Portal</h2>
-        <div class="buttons">
-            <button onclick="showLogin()">Sign In</button>
-            <button onclick="showSignup()">Sign Up</button>
+
+    <!-- Login Form -->
+    <div class="container" id="loginContainer">
+        <h2>Student Login</h2>
+        <form id="loginForm">
+            <label for="username">Reg No</label>
+            <input type="text" id="username" required><br><br>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" required><br><br>
+            
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="links">
+            <p>Don't have an account? <a href="#" id="signUpLink">Sign Up</a></p>
+            <p><a href="#" id="forgotPasswordLink">Forgot Password?</a></p>
         </div>
-        
-        <div id="login-form" class="form">
-            <h3>Sign In</h3>
-            <input type="text" id="login-username" placeholder="Username" required>
-            <input type="password" id="login-password" placeholder="Password" required>
-            <button onclick="login()">Login</button>
-            <p id="login-message" style="color: red;"></p>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="container hidden" id="signUpContainer">
+        <h2>Sign Up</h2>
+        <form id="signUpForm">
+            <input type="text" id="fullName" placeholder="Full Names" required>
+            <input type="text" id="regNo" placeholder="Registration Number" required>
+            <input type="date" id="dob" required>
+            <input type="text" id="school" placeholder="School" required>
+            <input type="text" id="course" placeholder="Course" required>
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="links">
+            <p>Already have an account? <a href="#" id="backToLogin">Log In</a></p>
+        </div>
+    </div>
+
+    <!-- Password Reset Form -->
+    <div class="container hidden" id="resetContainer">
+        <h2>Reset Password</h2>
+        <p>Enter your email to receive a verification code.</p>
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <button id="sendCode">Send Code</button>
+
+        <div id="verificationSection" class="hidden">
+            <p>Enter the 6-digit code sent to your email.</p>
+            <input type="text" id="verificationCode" placeholder="Enter code" required>
+            <button id="verifyCode">Verify</button>
         </div>
 
-        <div id="signup-form" class="form">
-            <h3>Sign Up</h3>
-            <input type="text" id="signup-name" placeholder="Full Name" required>
-            <input type="text" id="signup-admission" placeholder="Admission Number" required>
-            <input type="email" id="signup-email" placeholder="Email" required>
-            <label>Date of Birth:</label>
-            <select id="dob-day"></select>
-            <select id="dob-month"></select>
-            <select id="dob-year"></select>
-            <input type="text" id="signup-program" placeholder="Degree Program" required>
-            <button onclick="register()">Register</button>
-            <p id="signup-message" style="color: red;"></p>
+        <div id="newPasswordSection" class="hidden">
+            <p>Enter your new password.</p>
+            <input type="password" id="newPassword" placeholder="New password" required>
+            <button id="resetPassword">Reset Password</button>
+        </div>
+
+        <div class="links">
+            <p><a href="#" id="backToLoginFromReset">Back to Login</a></p>
         </div>
     </div>
 
